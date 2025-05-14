@@ -11,6 +11,8 @@ wwwroot\login.html
 wwwroot\logout.html
 wwwroot\register.html
 wwwroot\reset-password.html
+wwwroot\stories\0ac905f7-0717-44e7-871a-8522ee7b83f8.jpg
+wwwroot\stories\8f949f6d-4ae4-4646-9a5d-b96d01a6e5f6.mp4
 wwwroot\uploads\015f9cd6-740b-4db5-ac72-502dadee9242_Screenshot 2024-03-13 050247.png
 wwwroot\uploads\0bd5f404-6c2a-4d30-92a4-2758cec6ce19_photo_2025-03-05_17-07-44.jpg
 wwwroot\uploads\0f6a680e-bf6a-4388-a00d-19f76cd51607_photo_2025-03-05_17-07-44.jpg
@@ -22,7 +24,9 @@ wwwroot\uploads\39a59219-a830-4c5c-9d57-3927d35edb81_Screenshot 2024-03-13 05024
 wwwroot\uploads\477197b2-dd16-4c72-9150-da6158e839d8_photo_2025-03-05_17-07-44.jpg
 wwwroot\uploads\485a4e85-598a-491b-817b-1e31b495d24c_Screenshot 2024-03-13 050247.png
 wwwroot\uploads\4ab6798f-3124-43b7-b685-c104ba4b9753_Screenshot 2024-03-13 050247.png
+wwwroot\uploads\501d4aab-44a9-4c1b-b904-68af6e865574_photo_2025-03-05_17-07-44.jpg
 wwwroot\uploads\73d2cb88-fd85-490d-84df-4094e6beb3f9_photo_2025-03-05_17-07-44.jpg
+wwwroot\uploads\7f7e83ae-02bd-403f-8eb1-60e0853e2f7d_Medhat.png
 wwwroot\uploads\87d3acd5-f688-46cb-a3c0-2efa26df7deb_Tabib.png
 wwwroot\uploads\92a66081-1895-4bec-9373-f192844ba274_photo_2025-02-16_02-33-11.jpg
 wwwroot\uploads\95c2cc9e-b720-47b8-8859-adeefef6fe3c_photo_2025-02-16_02-33-11.jpg

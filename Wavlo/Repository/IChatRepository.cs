@@ -9,7 +9,7 @@ namespace Wavlo.Repository
         Task<bool> LeaveRoomAsync(int chatId, string userId);
         Task<int> CreateRoomAsync(string name, string userId, bool isGroup = false);
         Task<IEnumerable<Chat>> GetChatsAsync(string userId);
-        Task<int> CreatePrivateRoomAsync(string rootId, string targetId , string name);
+        Task<int> CreatePrivateRoomAsync(string rootId, string targetId);
         Task<IEnumerable<Chat>> GetPrivateChatsAsync(string userId);
 
         Task<Message> CreateMessageAsync(int chatId, string message, string userId, string? targetUserId = null, string? attachmentUrl = null);

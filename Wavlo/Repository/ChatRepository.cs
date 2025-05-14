@@ -40,27 +40,37 @@ namespace Wavlo.Repository
 
         }
 
-        public async Task<int> CreatePrivateRoomAsync(string rootId, string targetId , string name)
+        public async Task<int> CreatePrivateRoomAsync(string rootId, string targetId)
         {
             var existingChat = await _context.Chats
-         .Include(c => c.Users)
-         .FirstOrDefaultAsync(c => c.Type == ChatType.Private &&
-                                   c.Users.Any(u => u.UserId == rootId) &&
-                                   c.Users.Any(u => u.UserId == targetId));
+        .Include(c => c.Users)
+        .FirstOrDefaultAsync(c => c.Type == ChatType.Private &&
+                                  c.Users.Any(u => u.UserId == rootId) &&
+                                  c.Users.Any(u => u.UserId == targetId));
 
             if (existingChat != null)
             {
                 return existingChat.Id;
             }
 
+            var rootUser = await _context.Users.FindAsync(rootId);
+            var targetUser = await _context.Users.FindAsync(targetId);
+
             var chat = new Chat
             {
                 Type = ChatType.Private,
-                Name = name,
                 Users = new List<ChatUser>
         {
-            new ChatUser { UserId = rootId },
-            new ChatUser { UserId = targetId }
+            new ChatUser
+            {
+                UserId = rootId,
+                DisplayName = $"{targetUser.FirstName} {targetUser.LastName}" 
+            },
+            new ChatUser
+            {
+                UserId = targetId,
+                DisplayName = $"{rootUser.FirstName} {rootUser.LastName}" 
+            }
         }
             };
 
@@ -68,11 +78,87 @@ namespace Wavlo.Repository
             await _context.SaveChangesAsync();
 
             return chat.Id;
+            //    var existingChat = await _context.Chats
+            //.Include(c => c.Users)
+            //.FirstOrDefaultAsync(c => c.Type == ChatType.Private &&
+            //                          c.Users.Any(u => u.UserId == rootId) &&
+            //                          c.Users.Any(u => u.UserId == targetId));
+
+
+            //    if (existingChat != null)
+            //    {
+            //        return existingChat.Id;
+            //    }
+
+
+            //    var targetUser = await _context.Users
+            //        .Where(u => u.Id == targetId)
+            //        .Select(u => new { u.FirstName, u.LastName })
+            //        .FirstOrDefaultAsync();
+
+
+            //    if (targetUser == null)
+            //    {
+            //        throw new Exception("User not found");
+            //    }
+
+
+            //    var chat = new Chat
+            //    {
+            //        Type = ChatType.Private,
+            //        Name = $"{targetUser.FirstName} {targetUser.LastName}", 
+            //        Users = new List<ChatUser>
+            //{
+            //    new ChatUser { UserId = rootId },
+            //    new ChatUser { UserId = targetId }
+            //}
+            //    };
+
+
+            //    _context.Chats.Add(chat);
+            //    await _context.SaveChangesAsync();
+
+
+            //    return chat.Id;
+
+
+            //    var existingChat = await _context.Chats
+            // .Include(c => c.Users)
+            // .FirstOrDefaultAsync(c => c.Type == ChatType.Private &&
+            //                           c.Users.Any(u => u.UserId == rootId) &&
+            //                           c.Users.Any(u => u.UserId == targetId));
+
+            //    if (existingChat != null)
+            //    {
+            //        return existingChat.Id;
+            //    }
+            //    var targetUser = await _context.Users.FindAsync(targetId);
+            //    if (targetUser == null)
+            //        throw new Exception("Target user not found");
+
+            //    var chat = new Chat
+            //    {
+            //        Type = ChatType.Private,
+            //        Name = $"{targetUser.FirstName} {targetUser.LastName}",
+            //        Users = new List<ChatUser>
+            //{
+            //    new ChatUser { UserId = rootId },
+            //    new ChatUser { UserId = targetId }
+            //}
+            //    };
+
+            //    _context.Chats.Add(chat);
+            //    await _context.SaveChangesAsync();
+
+            //    return chat.Id;
 
         }
 
         public async Task<int> CreateRoomAsync(string name, string userId , bool isGroup = false)
         {
+            var user = await _context.Users.FindAsync(userId);
+            if (user == null)
+                throw new Exception("User not found");
 
             var chat = new Chat
             {
@@ -80,16 +166,36 @@ namespace Wavlo.Repository
                 IsGroup = isGroup,
                 Name = name,
             };
+
             chat.Users.Add(new ChatUser
             {
                 UserId = userId,
                 Role = UserRole.Admin,
+                DisplayName = $"{user.FirstName} {user.LastName}"
             });
 
             _context.Chats.Add(chat);
             await _context.SaveChangesAsync();
 
             return chat.Id;
+
+            //var chat = new Chat
+            //{
+            //    Type = ChatType.Group,
+            //    IsGroup = isGroup,
+            //    Name = name,
+            //};
+            //chat.Users.Add(new ChatUser
+            //{
+            //    UserId = userId,
+            //    Role = UserRole.Admin,
+            //    DisplayName = $"{user.FirstName} {user.LastName}"
+            //});
+
+            //_context.Chats.Add(chat);
+            //await _context.SaveChangesAsync();
+
+            //return chat.Id;
         }
 
         public async Task<bool> DeleteMessageAsync(int messageId)
@@ -161,9 +267,13 @@ namespace Wavlo.Repository
         public async Task<bool> JoinRoomAsync(int chatId, string userId)
         {
             bool alreadyJoined = await _context.ChatUsers
-                                .AnyAsync(cu => cu.ChatId == chatId && cu.UserId == userId);
+                         .AnyAsync(cu => cu.ChatId == chatId && cu.UserId == userId);
 
             if (alreadyJoined)
+                return false;
+
+            var user = await _context.Users.FindAsync(userId);
+            if (user == null)
                 return false;
 
             var chatUser = new ChatUser
@@ -171,12 +281,30 @@ namespace Wavlo.Repository
                 ChatId = chatId,
                 UserId = userId,
                 Role = UserRole.Member,
+                DisplayName = $"{user.FirstName} {user.LastName}"
             };
 
             _context.ChatUsers.Add(chatUser);
             await _context.SaveChangesAsync();
 
             return true;
+            //bool alreadyJoined = await _context.ChatUsers
+            //                    .AnyAsync(cu => cu.ChatId == chatId && cu.UserId == userId);
+
+            //if (alreadyJoined)
+            //    return false;
+
+            //var chatUser = new ChatUser
+            //{
+            //    ChatId = chatId,
+            //    UserId = userId,
+            //    Role = UserRole.Member,
+            //};
+
+            //_context.ChatUsers.Add(chatUser);
+            //await _context.SaveChangesAsync();
+
+            //return true;
         }
         public async Task<bool> LeaveRoomAsync(int chatId,string userId)
         {
@@ -191,5 +319,6 @@ namespace Wavlo.Repository
 
             return true;
         }
+
     }
 }

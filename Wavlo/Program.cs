@@ -56,8 +56,12 @@ namespace Wavlo
 
 
             builder.Services.AddDbContext<ChatDbContext>(options =>
-            options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection"))
-            );
+            options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")
+            , sqlOptions =>
+            {
+                sqlOptions.EnableRetryOnFailure();
+            }
+            ));
 
             var emailconfig = builder.Configuration.GetSection("EmailConfigration").Get<EmailConfigration>();
             builder.Services.AddSingleton(emailconfig);
@@ -138,7 +142,6 @@ namespace Wavlo
                 app.MapOpenApi();
             
 
-            app.UseHttpsRedirection();
             app.UseStaticFiles();
             app.UseRouting();
             app.UseAuthentication();

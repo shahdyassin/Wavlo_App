@@ -129,6 +129,9 @@ namespace Wavlo.Services
                 authResult.Message = "User registered successfully. Verification code sent to email.";
                 authResult.Token = jwtToken;
                 authResult.RefreshToken = refreshToken;
+                authResult.FirstName = user.FirstName;
+                authResult.LastName = user.LastName;
+                authResult.Email = user.Email;
                 return authResult;
             }
             catch (Exception ex)

@@ -42,19 +42,96 @@ namespace Wavlo.Controllers
         [HttpGet("chats")]
         public async Task<IActionResult> GetChats()
         {
-            var chats = await _repository.GetChatsAsync(GetUserId());
+            var userId = GetUserId();
 
-            
-            var chatDtos = chats.Select(c => new ChatDto
-            {
-                Id = c.Id,
-                Name = c.Name,
-                IsGroup = c.IsGroup,
-                Type = c.Type.ToString(),
-                UserIds = c.Users.Select(u => u.UserId).ToList()
-            }).ToList();
+            var chats = await _chatDb.ChatUsers
+                .Where(cu => cu.UserId == userId)
+                .Include(cu => cu.Chat)
+                    .ThenInclude(c => c.Users)
+                        .ThenInclude(cu => cu.User)
+                            .ThenInclude(u => u.UserImages)
+                .Include(cu => cu.Chat.Messages)
+                    .ThenInclude(m => m.User)
+                .Select(cu => new
+                {
+                    cu.Chat.Id,
+                    Name = cu.DisplayName,
+                    cu.Chat.Type,
+                    cu.Chat.IsGroup,
+                    LastMessage = cu.Chat.Messages.OrderByDescending(m => m.SentAt).Select(m => m.Content).FirstOrDefault(),
+                    LastMessageTime = cu.Chat.Messages.OrderByDescending(m => m.SentAt).Select(m => m.SentAt).FirstOrDefault(),
+                    LastMessageSenderId = cu.Chat.Messages.OrderByDescending(m => m.SentAt).Select(m => m.UserId).FirstOrDefault(),
+                    UserIds = cu.Chat.Users.Select(u => u.UserId).ToList(),
 
-            return Ok(chatDtos);
+                    Participants = cu.Chat.Users.Select(u => new {
+                        Id = u.UserId,
+                        u.User.FirstName,
+                        u.User.LastName,
+                        ProfileImage = u.User.UserImages.FirstOrDefault().ImageUrl
+                    }).ToList(),
+
+                   
+                    ChatImages = cu.Chat.IsGroup
+                        ? cu.Chat.Users
+                            .Select(u => u.User.UserImages.FirstOrDefault().ImageUrl)
+                            .Where(img => img != null)
+                            .ToList()
+                        : cu.Chat.Users
+                            .Where(u => u.UserId != userId)
+                            .Select(u => u.User.UserImages.FirstOrDefault().ImageUrl)
+                            .Where(img => img != null)
+                            .ToList()
+                }).ToListAsync();
+
+            return Ok(chats);
+            //var userId = GetUserId();
+
+            //var chats = await _chatDb.ChatUsers
+            //    .Where(cu => cu.UserId == userId)
+            //    .Include(cu => cu.Chat)
+            //        .ThenInclude(c => c.Users)
+            //    .Select(cu => new
+            //    {
+            //        cu.Chat.Id,
+            //        Name = cu.DisplayName, 
+            //        cu.Chat.Type,
+            //        cu.Chat.IsGroup,
+            //        UserIds = cu.Chat.Users.Select(u => u.UserId).ToList(),
+            //        GroupUsers = cu.Chat.IsGroup
+            //    ? cu.Chat.Users
+            //        .Where(u => u.UserId != userId)
+            //        .Select(u => new {
+            //            u.UserId,
+            //            u.User.FirstName,
+            //            u.User.LastName,
+            //            ProfileImage = u.User.UserImages.FirstOrDefault().ImageUrl
+            //        }).ToList()
+            //    : null,
+
+
+            //        UserProfileImage = !cu.Chat.IsGroup
+            //    ? cu.Chat.Users
+            //        .Where(u => u.UserId != userId)
+            //        .Select(u => u.User.UserImages.FirstOrDefault().ImageUrl)
+            //        .FirstOrDefault()
+            //    : null
+            //    })
+            //    .ToListAsync();
+
+            //return Ok(chats);
+            //var chats = await _repository.GetChatsAsync(GetUserId());
+
+
+            //var chatDtos = chats.Select(c => new ChatDto
+            //{
+            //    Id = c.Id,
+            //    Name = c.Name,
+            //    IsGroup = c.IsGroup,
+            //    Type = c.Type.ToString(),
+            //    UserIds = c.Users.Select(u => u.UserId).ToList()
+            //}).ToList();
+
+            //return Ok(chatDtos);
         }
 
         [HttpGet("private")]
@@ -65,13 +142,26 @@ namespace Wavlo.Controllers
             var chatDtos = chats.Select(c => new ChatDto
             {
                 Id = c.Id,
-                Name = c.Name,
+                Name = c.Name, 
                 IsGroup = c.IsGroup,
                 Type = c.Type.ToString(),
                 UserIds = c.Users.Select(u => u.UserId).ToList()
             }).ToList();
 
             return Ok(chatDtos);
+
+            //var chats = await _repository.GetPrivateChatsAsync(GetUserId());
+
+            //var chatDtos = chats.Select(c => new ChatDto
+            //{
+            //    Id = c.Id,
+            //    Name = c.Name,
+            //    IsGroup = c.IsGroup,
+            //    Type = c.Type.ToString(),
+            //    UserIds = c.Users.Select(u => u.UserId).ToList()
+            //}).ToList();
+
+            //return Ok(chatDtos);
         }
         [HttpPost("create-room")]
         public async Task<IActionResult> CreateRoom(string name)
@@ -98,16 +188,24 @@ namespace Wavlo.Controllers
         }
         [HttpPost("create-private-chat")]
 
-        public async Task<IActionResult> CreatePrivateChat(string userId , string name)
+        public async Task<IActionResult> CreatePrivateChat(string userId)
         {
-            var rootUserId = User.GetUserId();
+            var rootUserId = GetUserId();
             if (string.IsNullOrEmpty(rootUserId))
             {
                 return BadRequest("Invalid user ID");
             }
 
-            var chatId = await _repository.CreatePrivateRoomAsync(rootUserId, userId , name);
+            var chatId = await _repository.CreatePrivateRoomAsync(rootUserId, userId);
             return Ok(new { chatId });
+            //var rootUserId = User.GetUserId();
+            //if (string.IsNullOrEmpty(rootUserId))
+            //{
+            //    return BadRequest("Invalid user ID");
+            //}
+
+            //var chatId = await _repository.CreatePrivateRoomAsync(rootUserId, userId);
+            //return Ok(new { chatId });
         }
 
         [HttpPost("join-room")]

@@ -146,7 +146,7 @@
             <p>Please use this code to reset your password. This code is valid for 10 minutes.</p>
         </div>
         <div class='footer'>
-            <p>&copy; 2023 Your Company. All rights reserved.</p>
+            <p>&copy; 2025 Your Company. All rights reserved.</p>
         </div>
     </div>
 </body>

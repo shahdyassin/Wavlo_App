@@ -11,7 +11,7 @@ namespace Wavlo.Models
             Users = new List<ChatUser>();
         }
         public int Id { get; set; }
-        public string Name { get; set; }
+        public string? Name { get; set; }
 
         public bool IsGroup { get; set; }
 

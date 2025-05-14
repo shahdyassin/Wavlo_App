@@ -7,5 +7,6 @@
         public int ChatId { get; set; }
         public Chat Chat { get; set; }
         public UserRole Role { get; set; }
+        public string DisplayName { get; set; }
     }
 }
