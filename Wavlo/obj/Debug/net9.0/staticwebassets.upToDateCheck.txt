@@ -1,10 +1,3 @@
-D:\College\LEVEL 3 (2)\SW2\Project\Wavlo\Wavlo\wwwroot\forgetpassword.html
-D:\College\LEVEL 3 (2)\SW2\Project\Wavlo\Wavlo\wwwroot\login.html
-D:\College\LEVEL 3 (2)\SW2\Project\Wavlo\Wavlo\wwwroot\validate-otp.html
-D:\College\LEVEL 3 (2)\SW2\Project\Wavlo\Wavlo\wwwroot\register.html
-D:\College\LEVEL 3 (2)\SW2\Project\Wavlo\Wavlo\wwwroot\chat.html
-D:\College\LEVEL 3 (2)\SW2\Project\Wavlo\Wavlo\wwwroot\reset-password.html
-D:\College\LEVEL 3 (2)\SW2\Project\Wavlo\Wavlo\wwwroot\logout.html
 wwwroot\chat.html
 wwwroot\forgetpassword.html
 wwwroot\login.html
@@ -12,7 +5,11 @@ wwwroot\logout.html
 wwwroot\register.html
 wwwroot\reset-password.html
 wwwroot\stories\0ac905f7-0717-44e7-871a-8522ee7b83f8.jpg
+wwwroot\stories\7269058c-598c-4e89-9848-40e28674d52e.jpg
 wwwroot\stories\8f949f6d-4ae4-4646-9a5d-b96d01a6e5f6.mp4
+wwwroot\stories\b456a8b2-c92e-440c-abd6-d4a36b3f2341.jpg
+wwwroot\stories\bd44a356-11c4-434a-bf87-80c3d7700763.jpg
+wwwroot\stories\fcfe3c80-5524-4f6a-a002-069c62910a98.jpg
 wwwroot\uploads\015f9cd6-740b-4db5-ac72-502dadee9242_Screenshot 2024-03-13 050247.png
 wwwroot\uploads\0bd5f404-6c2a-4d30-92a4-2758cec6ce19_photo_2025-03-05_17-07-44.jpg
 wwwroot\uploads\0f6a680e-bf6a-4388-a00d-19f76cd51607_photo_2025-03-05_17-07-44.jpg
@@ -39,3 +36,12 @@ wwwroot\uploads\f3e2b51d-2f53-438f-a300-12e3dcd80353_photo_2025-03-05_17-07-44.j
 wwwroot\uploads\f458c581-57b4-49ed-9504-3f04a2766d77_360_F_295949484_8BrlWkTrPXTYzgMn3UebDl1O13PcVNMU.webp
 wwwroot\uploads\f8553d68-72f0-4c85-bd7a-dee91a85cda4_Screenshot 2024-03-13 050247.png
 wwwroot\validate-otp.html
+wwwroot\stories\4d9a7357-ca1c-45ce-8a6f-6409e39033dc.jpg
+wwwroot\stories\0d3d85b6-c134-44a3-80ab-80e7dff6927c.jpg
+D:\College\LEVEL 3 (2)\SW2\Project\Wavlo\Wavlo\wwwroot\chat.html
+D:\College\LEVEL 3 (2)\SW2\Project\Wavlo\Wavlo\wwwroot\forgetpassword.html
+D:\College\LEVEL 3 (2)\SW2\Project\Wavlo\Wavlo\wwwroot\login.html
+D:\College\LEVEL 3 (2)\SW2\Project\Wavlo\Wavlo\wwwroot\logout.html
+D:\College\LEVEL 3 (2)\SW2\Project\Wavlo\Wavlo\wwwroot\register.html
+D:\College\LEVEL 3 (2)\SW2\Project\Wavlo\Wavlo\wwwroot\reset-password.html
+D:\College\LEVEL 3 (2)\SW2\Project\Wavlo\Wavlo\wwwroot\validate-otp.html

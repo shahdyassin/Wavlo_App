@@ -144,12 +144,6 @@ D:\College\LEVEL 3 (2)\SW2\Project\Wavlo\Wavlo\obj\Debug\net9.0\scopedcss\bundle
 D:\College\LEVEL 3 (2)\SW2\Project\Wavlo\Wavlo\obj\Debug\net9.0\staticwebassets.build.json
 D:\College\LEVEL 3 (2)\SW2\Project\Wavlo\Wavlo\obj\Debug\net9.0\staticwebassets.development.json
 D:\College\LEVEL 3 (2)\SW2\Project\Wavlo\Wavlo\obj\Debug\net9.0\staticwebassets.build.endpoints.json
-D:\College\LEVEL 3 (2)\SW2\Project\Wavlo\Wavlo\obj\Debug\net9.0\staticwebassets\msbuild.Wavlo.Microsoft.AspNetCore.StaticWebAssets.props
-D:\College\LEVEL 3 (2)\SW2\Project\Wavlo\Wavlo\obj\Debug\net9.0\staticwebassets\msbuild.Wavlo.Microsoft.AspNetCore.StaticWebAssetEndpoints.props
-D:\College\LEVEL 3 (2)\SW2\Project\Wavlo\Wavlo\obj\Debug\net9.0\staticwebassets\msbuild.build.Wavlo.props
-D:\College\LEVEL 3 (2)\SW2\Project\Wavlo\Wavlo\obj\Debug\net9.0\staticwebassets\msbuild.buildMultiTargeting.Wavlo.props
-D:\College\LEVEL 3 (2)\SW2\Project\Wavlo\Wavlo\obj\Debug\net9.0\staticwebassets\msbuild.buildTransitive.Wavlo.props
-D:\College\LEVEL 3 (2)\SW2\Project\Wavlo\Wavlo\obj\Debug\net9.0\staticwebassets.pack.json
 D:\College\LEVEL 3 (2)\SW2\Project\Wavlo\Wavlo\obj\Debug\net9.0\staticwebassets.upToDateCheck.txt
 D:\College\LEVEL 3 (2)\SW2\Project\Wavlo\Wavlo\obj\Debug\net9.0\Wavlo.csproj.Up2Date
 D:\College\LEVEL 3 (2)\SW2\Project\Wavlo\Wavlo\obj\Debug\net9.0\Wavlo.dll
@@ -397,3 +391,4 @@ D:\College\LEVEL 3 (2)\SW2\Project\Wavlo\Wavlo\bin\Debug\net9.0\Asp.Versioning.M
 D:\College\LEVEL 3 (2)\SW2\Project\Wavlo\Wavlo\bin\Debug\net9.0\Asp.Versioning.Mvc.ApiExplorer.dll
 D:\College\LEVEL 3 (2)\SW2\Project\Wavlo\Wavlo\obj\Debug\net9.0\compressed\9mityhv4kf-alj5i8911r.gz
 D:\College\LEVEL 3 (2)\SW2\Project\Wavlo\Wavlo\obj\Debug\net9.0\compressed\4fw957dtji-73msyqdogf.gz
+D:\College\LEVEL 3 (2)\SW2\Project\Wavlo\Wavlo\obj\Debug\net9.0\staticwebassets.build.json.cache
