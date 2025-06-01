@@ -59,7 +59,7 @@ Wavlo_Backend/
 ├── Wavlo.Infrastructure/  # Data access and external services  
 │   ├── Data/               # DbContext and configuration  
 │   ├── Repository/         # ChatRepository, etc.  
-│   ├── CloudStorage/  
+│   ├── CloudStorage/       # Blob Storage for Videos and Media
 │   ├── MailService/  
 │   ├── OTPValidation/  
 │   └── Wavlo.Infrastructure.csproj  
