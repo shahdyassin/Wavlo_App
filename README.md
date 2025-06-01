@@ -80,7 +80,7 @@ We believe everyone deserves to express themselves freely, and with AI and sign 
 ## 👨‍💻 Developed By  
 **Shady Yassin**  
 GitHub: [@shahdyassin](https://github.com/shahdyassin)  
-LinkedIn: [Shahdy Yassin](https://www.linkedin.com/in/shahd-yassin/)  
+LinkedIn: [Shahd Yassin](https://www.linkedin.com/in/shahd-yassin/)  
 
 ## 📜 License  
 **MIT License**  
