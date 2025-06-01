@@ -11,8 +11,8 @@ It combines **standard chat features** with **AI-based sign language video trans
 ### ✅ Core Chat Features
 - 💬 Private & group messaging
 - 🎙️ Send voice messages
-- 📍 Share location
-- 😄 Emojis and stickers
+- 📍 Share location (Future Work)
+- 😄 Emojis and stickers (Future Work)
 - 🎥 Send video messages
 - 🔄 Edit and delete messages
 - 🔔 Real-time notifications (SignalR)
