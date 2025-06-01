@@ -77,13 +77,17 @@ flutter run
 **Wavlo** isn’t just a chat app — it’s a step toward **inclusive communication**.  
 We believe everyone deserves to express themselves freely, and with AI and sign language recognition, we're trying to make that happen.  
 
-## 👨‍💻 Developed By  
-**Shady Yassin**  
-GitHub: [@shahdyassin](https://github.com/shahdyassin)  
-LinkedIn: [Shahd Yassin](https://www.linkedin.com/in/shahd-yassin/)  
 
 ## 📜 License  
 **MIT License**  
 
 ## 🌐 Repository  
 [https://github.com/shahdyassin/Wavlo_App](https://github.com/shahdyassin/Wavlo_App)
+
+## 🤝 Contributors
+
+| Name         | GitHub                                      | LinkedIn                                      |
+|--------------|---------------------------------------------|-----------------------------------------------|
+| Shady Yassin | [@shahdyassin](https://github.com/shahdyassin) | [Shahd Yassin](https://www.linkedin.com/in/shahd-yassin/) |
+| Ziad Yousef  | [@ziadyousef1](https://github.com/ziadyousef1)  | [Ziad Yousef](https://www.linkedin.com/in/ziad-yousef-14b3a0249/) |
+
