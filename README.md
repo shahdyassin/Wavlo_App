@@ -68,8 +68,8 @@ flutter run
 - [x] Sign language video support  
 - [x] Sign video ➜ text  
 - [x] Sign video ➜ voice  
-- [ ] Cloud media storage  
-- [ ] Enhanced accessibility UI  
+- [x] Cloud media storage  
+- [x] Enhanced accessibility UI  
 - [ ] Push notifications  
 - [ ] Multilingual sign support  
 
