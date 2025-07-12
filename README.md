@@ -24,7 +24,10 @@ It combines **core chat features** with **AI-based sign language video translati
 - 🌐 Currently supports **English Sign Language** *(multi-language support in progress)*  
 
 ---
+# 📸 Screens
+<img width="1920" height="1080" alt="Untitled design" src="https://github.com/user-attachments/assets/fd9f0211-8d8a-4538-9be8-12165b7ad85d" />
 
+---
 ## 🛠️ Tech Stack  
 
 | Layer     | Technology                   |  
